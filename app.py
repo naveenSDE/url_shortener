@@ -15,7 +15,7 @@ def index():
         codes = code()
 
         add_long_url(codes,long_code)
-        short_url = f"http://127.0.0.1:5000/{codes}"
+        short_url = request.host_url + codes
         return render_template("index.html", short_url=short_url)
     return render_template("index.html")
 
