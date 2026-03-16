@@ -2,6 +2,7 @@ from flask import Flask, render_template,request,redirect
 from random_code import code
 from model import add_long_url
 from model import get_url
+import os
 
 app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
@@ -26,9 +27,10 @@ def redirect_url(codes):
 
     return "url not found",404
 
-if __name__=="__main__":
-    app.run(debug=True)
 
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
 
     
 
